@@ -1,10 +1,27 @@
 import { motion } from 'framer-motion';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { projects } from '../data/projects';
 
 const ProjectDetails = () => {
     const { projectId } = useParams();
+    const navigate = useNavigate();
     const project = projects.find((p) => p.id === projectId);
+
+    const handleBackToProjects = () => {
+        navigate('/');
+        // Wait for navigation then scroll to projects section
+        setTimeout(() => {
+            const element = document.getElementById('projects');
+            if (element) {
+                const navHeight = 80;
+                const elementPosition = element.offsetTop - navHeight;
+                window.scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }, 100);
+    };
 
     if (!project) {
         return (
@@ -12,9 +29,9 @@ const ProjectDetails = () => {
                 <div className="max-w-6xl mx-auto text-center">
                     <div className="text-6xl mb-4">🔍</div>
                     <h1 className="text-3xl font-bold mb-4">Project not found</h1>
-                    <Link to="/projects" className="btn-primary">
+                    <button onClick={handleBackToProjects} className="btn-primary">
                         Back to Projects
-                    </Link>
+                    </button>
                 </div>
             </section>
         );
@@ -29,8 +46,8 @@ const ProjectDetails = () => {
                     animate={{ opacity: 1, x: 0 }}
                     className="mb-6 sm:mb-8"
                 >
-                    <Link
-                        to="/projects"
+                    <button
+                        onClick={handleBackToProjects}
                         className="inline-flex items-center gap-2 text-sm font-medium transition-colors hover:opacity-80"
                         style={{ color: 'var(--text-secondary)' }}
                     >
@@ -38,7 +55,7 @@ const ProjectDetails = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                         Back to Projects
-                    </Link>
+                    </button>
                 </motion.div>
 
                 {/* Project Header */}

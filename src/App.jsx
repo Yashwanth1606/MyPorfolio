@@ -1,5 +1,6 @@
-import { HashRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
+import { useEffect } from 'react';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Skills from './pages/Skills';
@@ -28,9 +29,37 @@ function MainPage() {
   );
 }
 
+// Scroll restoration component
+function ScrollToTop() {
+  const { pathname, hash } = useLocation();
+
+  useEffect(() => {
+    // If there's a hash, scroll to that section
+    if (hash) {
+      const element = document.getElementById(hash.replace('#', ''));
+      if (element) {
+        setTimeout(() => {
+          const navHeight = 80;
+          const elementPosition = element.offsetTop - navHeight;
+          window.scrollTo({
+            top: elementPosition,
+            behavior: 'smooth'
+          });
+        }, 100);
+      }
+    } else {
+      // Otherwise scroll to top
+      window.scrollTo(0, 0);
+    }
+  }, [pathname, hash]);
+
+  return null;
+}
+
 function App() {
   return (
     <Router>
+      <ScrollToTop />
       <div
         className="min-h-screen"
         style={{ backgroundColor: 'var(--bg-primary)' }}
@@ -41,6 +70,8 @@ function App() {
             <Route path="/" element={<MainPage />} />
             <Route path="/skills/:skillId" element={<SkillProjects />} />
             <Route path="/projects/:projectId" element={<ProjectDetails />} />
+            {/* Catch-all route - redirect to home */}
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </AnimatePresence>
 
@@ -62,3 +93,4 @@ function App() {
 }
 
 export default App;
+

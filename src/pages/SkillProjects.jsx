@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, useNavigate } from 'react-router-dom';
 import { skills } from '../data/skills';
 import { projects } from '../data/projects';
 import ProjectCard from '../components/ProjectCard';
 
 const SkillProjects = () => {
     const { skillId } = useParams();
+    const navigate = useNavigate();
     const skill = skills.find((s) => s.id === skillId);
 
     // Filter projects that include this skill
@@ -16,14 +17,30 @@ const SkillProjects = () => {
         )
     );
 
+    const handleBackToSkills = () => {
+        navigate('/');
+        // Wait for navigation then scroll to skills section
+        setTimeout(() => {
+            const element = document.getElementById('skills');
+            if (element) {
+                const navHeight = 80;
+                const elementPosition = element.offsetTop - navHeight;
+                window.scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                });
+            }
+        }, 100);
+    };
+
     if (!skill) {
         return (
             <section className="min-h-screen pt-20 sm:pt-24 pb-12 sm:pb-16 px-4">
                 <div className="max-w-6xl mx-auto text-center">
                     <h1 className="text-3xl font-bold mb-4">Skill not found</h1>
-                    <Link to="/skills" className="btn-primary">
+                    <button onClick={handleBackToSkills} className="btn-primary">
                         Back to Skills
-                    </Link>
+                    </button>
                 </div>
             </section>
         );
@@ -38,8 +55,8 @@ const SkillProjects = () => {
                     animate={{ opacity: 1, x: 0 }}
                     className="mb-6 sm:mb-8"
                 >
-                    <Link
-                        to="/skills"
+                    <button
+                        onClick={handleBackToSkills}
                         className="inline-flex items-center gap-2 text-sm font-medium transition-colors hover:opacity-80"
                         style={{ color: 'var(--text-secondary)' }}
                     >
@@ -47,7 +64,7 @@ const SkillProjects = () => {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
                         </svg>
                         Back to Skills
-                    </Link>
+                    </button>
                 </motion.div>
 
                 {/* Header */}
