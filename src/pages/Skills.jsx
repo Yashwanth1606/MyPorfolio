@@ -4,14 +4,14 @@ import SkillCard from '../components/SkillCard';
 
 const Skills = () => {
     return (
-        <section className="py-20 px-4" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+        <section className="py-12 sm:py-20 px-4" style={{ backgroundColor: 'var(--bg-secondary)' }}>
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-12"
+                    className="text-center mb-8 sm:mb-12"
                 >
                     <motion.span
                         initial={{ opacity: 0, scale: 0.8 }}
@@ -37,7 +37,7 @@ const Skills = () => {
                 </motion.div>
 
                 {/* Skills Grid */}
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6">
                     {skills.map((skill, index) => (
                         <SkillCard key={skill.id} skill={skill} index={index} />
                     ))}
@@ -49,7 +49,7 @@ const Skills = () => {
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: 0.8 }}
-                    className="mt-16 text-center"
+                    className="mt-10 sm:mt-16 text-center"
                 >
                     <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
                         Click on any skill to see related projects

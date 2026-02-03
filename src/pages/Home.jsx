@@ -52,9 +52,9 @@ const Home = () => {
     ];
 
     return (
-        <section className="min-h-[100vh] flex items-center pt-20 pb-12 px-4">
+        <section className="min-h-[100vh] flex items-center pt-16 sm:pt-20 pb-8 sm:pb-12 px-4">
             <div className="max-w-6xl mx-auto w-full">
-                <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 lg:gap-16 items-center">
                     {/* Left Column - Content */}
                     <motion.div
                         initial={{ opacity: 0, x: -50 }}
@@ -116,7 +116,7 @@ const Home = () => {
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ delay: 0.6 }}
-                            className="flex flex-wrap gap-3 mb-8"
+                            className="flex flex-col sm:flex-row flex-wrap gap-2 sm:gap-3 mb-6 sm:mb-8"
                         >
                             {socialLinks.map((link) => (
                                 <motion.button
@@ -128,7 +128,7 @@ const Home = () => {
                                             copyToClipboard(link.value, link.type);
                                         }
                                     }}
-                                    className="flex items-center gap-2 px-4 py-2.5 rounded-xl transition-all duration-300 group"
+                                    className="flex items-center justify-center sm:justify-start gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-xl transition-all duration-300 group w-full sm:w-auto"
                                     style={{
                                         backgroundColor: 'var(--card-bg)',
                                         border: '1px solid var(--border-color)',
@@ -204,7 +204,7 @@ const Home = () => {
 
                             {/* Image Container */}
                             <motion.div
-                                className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden"
+                                className="relative w-48 h-48 xs:w-64 xs:h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-2xl sm:rounded-3xl overflow-hidden"
                                 style={{
                                     boxShadow: 'var(--card-shadow)',
                                     border: '4px solid var(--border-color)',
@@ -228,7 +228,7 @@ const Home = () => {
 
                             {/* Floating Badge */}
                             <motion.div
-                                className="absolute -bottom-4 -right-4 px-4 py-2 rounded-xl"
+                                className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 px-2 sm:px-4 py-1 sm:py-2 rounded-lg sm:rounded-xl"
                                 style={{
                                     backgroundColor: 'var(--card-bg)',
                                     border: '1px solid var(--border-color)',
@@ -238,18 +238,18 @@ const Home = () => {
                                 animate={{ scale: 1 }}
                                 transition={{ delay: 0.8, type: 'spring' }}
                             >
-                                <div className="flex items-center gap-2">
-                                    <span className="text-xl">💼</span>
+                                <div className="flex items-center gap-1 sm:gap-2">
+                                    <span className="text-base sm:text-xl">💼</span>
                                     <div>
-                                        <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Experience</p>
-                                        <p className="font-bold gradient-text">2+ Years</p>
+                                        <p className="text-[10px] sm:text-xs" style={{ color: 'var(--text-muted)' }}>Experience</p>
+                                        <p className="font-bold gradient-text text-xs sm:text-base">2+ Years</p>
                                     </div>
                                 </div>
                             </motion.div>
 
                             {/* Second Floating Badge */}
                             <motion.div
-                                className="absolute -top-4 -left-4 px-4 py-2 rounded-xl"
+                                className="absolute -top-2 -left-2 sm:-top-4 sm:-left-4 px-2 sm:px-4 py-1 sm:py-2 rounded-lg sm:rounded-xl hidden xs:block"
                                 style={{
                                     backgroundColor: 'var(--card-bg)',
                                     border: '1px solid var(--border-color)',
@@ -259,11 +259,11 @@ const Home = () => {
                                 animate={{ scale: 1 }}
                                 transition={{ delay: 1, type: 'spring' }}
                             >
-                                <div className="flex items-center gap-2">
-                                    <span className="text-xl">📊</span>
+                                <div className="flex items-center gap-1 sm:gap-2">
+                                    <span className="text-base sm:text-xl">📊</span>
                                     <div>
-                                        <p className="text-xs" style={{ color: 'var(--text-muted)' }}>Role</p>
-                                        <p className="font-bold gradient-text">Data Analyst</p>
+                                        <p className="text-[10px] sm:text-xs" style={{ color: 'var(--text-muted)' }}>Role</p>
+                                        <p className="font-bold gradient-text text-xs sm:text-base">Data Analyst</p>
                                     </div>
                                 </div>
                             </motion.div>

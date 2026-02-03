@@ -18,7 +18,7 @@ const SkillProjects = () => {
 
     if (!skill) {
         return (
-            <section className="min-h-screen pt-24 pb-16 px-4">
+            <section className="min-h-screen pt-20 sm:pt-24 pb-12 sm:pb-16 px-4">
                 <div className="max-w-6xl mx-auto text-center">
                     <h1 className="text-3xl font-bold mb-4">Skill not found</h1>
                     <Link to="/skills" className="btn-primary">
@@ -30,13 +30,13 @@ const SkillProjects = () => {
     }
 
     return (
-        <section className="min-h-screen pt-24 pb-16 px-4">
+        <section className="min-h-screen pt-20 sm:pt-24 pb-12 sm:pb-16 px-4">
             <div className="max-w-6xl mx-auto">
                 {/* Back Button */}
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="mb-8"
+                    className="mb-6 sm:mb-8"
                 >
                     <Link
                         to="/skills"
@@ -54,14 +54,14 @@ const SkillProjects = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="mb-12"
+                    className="mb-8 sm:mb-12"
                 >
-                    <div className="flex items-center gap-4 mb-4">
-                        <div className={`skill-icon ${skill.bgColor} text-3xl`}>
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
+                        <div className={`skill-icon ${skill.bgColor} text-2xl sm:text-3xl w-12 h-12 sm:w-14 sm:h-14 flex-shrink-0`}>
                             {skill.icon}
                         </div>
                         <div>
-                            <h1 className="text-3xl sm:text-4xl font-bold">
+                            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold">
                                 <span className="gradient-text">{skill.name}</span> Projects
                             </h1>
                             <p className="mt-1" style={{ color: 'var(--text-secondary)' }}>
@@ -73,7 +73,7 @@ const SkillProjects = () => {
 
                 {/* Projects Grid */}
                 {filteredProjects.length > 0 ? (
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                         {filteredProjects.map((project, index) => (
                             <ProjectCard key={project.id} project={project} index={index} />
                         ))}

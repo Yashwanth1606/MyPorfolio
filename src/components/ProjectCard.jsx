@@ -11,15 +11,15 @@ const ProjectCard = ({ project, index }) => {
                 transition={{ delay: index * 0.15, duration: 0.5 }}
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="card rounded-2xl overflow-hidden cursor-pointer group h-full"
+                className="card rounded-xl sm:rounded-2xl overflow-hidden cursor-pointer group h-full"
             >
                 {/* Gradient Header */}
                 <div className={`h-2 bg-gradient-to-r ${project.color}`} />
 
-                <div className="p-6">
+                <div className="p-4 sm:p-6">
                     {/* Client Badge */}
                     <div
-                        className="inline-block px-3 py-1 rounded-full text-xs font-medium mb-3"
+                        className="inline-block px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium mb-2 sm:mb-3"
                         style={{
                             backgroundColor: 'var(--bg-tertiary)',
                             color: 'var(--text-secondary)',
@@ -30,7 +30,7 @@ const ProjectCard = ({ project, index }) => {
 
                     {/* Title */}
                     <h3
-                        className="text-xl font-bold mb-3 group-hover:gradient-text transition-all duration-300"
+                        className="text-lg sm:text-xl font-bold mb-2 sm:mb-3 group-hover:gradient-text transition-all duration-300"
                         style={{ color: 'var(--text-primary)' }}
                     >
                         {project.title}
@@ -38,22 +38,22 @@ const ProjectCard = ({ project, index }) => {
 
                     {/* Short Description */}
                     <p
-                        className="text-sm mb-4 line-clamp-2"
+                        className="text-xs sm:text-sm mb-3 sm:mb-4 line-clamp-2"
                         style={{ color: 'var(--text-secondary)' }}
                     >
                         {project.shortDescription}
                     </p>
 
                     {/* Skills */}
-                    <div className="mb-4">
-                        <span className="text-xs font-medium mb-2 block" style={{ color: 'var(--text-muted)' }}>
+                    <div className="mb-3 sm:mb-4">
+                        <span className="text-[10px] sm:text-xs font-medium mb-1.5 sm:mb-2 block" style={{ color: 'var(--text-muted)' }}>
                             Skills
                         </span>
                         <div className="flex flex-wrap gap-2">
                             {project.skills.map((skill) => (
                                 <span
                                     key={skill}
-                                    className="px-2 py-1 rounded-md text-xs font-medium"
+                                    className="px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md text-[10px] sm:text-xs font-medium"
                                     style={{
                                         background: `linear-gradient(135deg, var(--gradient-start), var(--gradient-end))`,
                                         color: 'white',
@@ -67,14 +67,14 @@ const ProjectCard = ({ project, index }) => {
 
                     {/* Tools */}
                     <div>
-                        <span className="text-xs font-medium mb-2 block" style={{ color: 'var(--text-muted)' }}>
+                        <span className="text-[10px] sm:text-xs font-medium mb-1.5 sm:mb-2 block" style={{ color: 'var(--text-muted)' }}>
                             Tools
                         </span>
                         <div className="flex flex-wrap gap-2">
                             {project.tools.map((tool) => (
                                 <span
                                     key={tool}
-                                    className="px-2 py-1 rounded-md text-xs"
+                                    className="px-1.5 sm:px-2 py-0.5 sm:py-1 rounded-md text-[10px] sm:text-xs"
                                     style={{
                                         backgroundColor: 'var(--bg-tertiary)',
                                         color: 'var(--text-secondary)',
@@ -87,7 +87,7 @@ const ProjectCard = ({ project, index }) => {
                     </div>
 
                     {/* View Details Arrow */}
-                    <div className="mt-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <div className="mt-3 sm:mt-4 flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-opacity hidden sm:flex">
                         <span
                             className="text-sm font-medium"
                             style={{ color: 'var(--gradient-start)' }}

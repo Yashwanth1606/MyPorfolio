@@ -54,14 +54,14 @@ const About = () => {
     ];
 
     return (
-        <section className="py-20 px-4" style={{ backgroundColor: 'var(--bg-secondary)' }}>
+        <section className="py-12 sm:py-20 px-4" style={{ backgroundColor: 'var(--bg-secondary)' }}>
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="text-center mb-16"
+                    className="text-center mb-10 sm:mb-16"
                 >
                     <motion.span
                         initial={{ opacity: 0, scale: 0.8 }}
@@ -87,7 +87,7 @@ const About = () => {
                 </motion.div>
 
                 {/* Main Content */}
-                <div className="grid lg:grid-cols-2 gap-12 mb-16">
+                <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 mb-10 sm:mb-16">
                     {/* Left - About Text */}
                     <motion.div
                         initial={{ opacity: 0, x: -30 }}
@@ -95,7 +95,7 @@ const About = () => {
                         viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
                     >
-                        <div className="card rounded-2xl p-8">
+                        <div className="card rounded-xl sm:rounded-2xl p-6 sm:p-8">
                             <h3 className="text-2xl font-bold mb-4" style={{ color: 'var(--text-primary)' }}>
                                 Hi, I'm <span className="gradient-text">Yashwanth U</span>
                             </h3>
@@ -126,7 +126,7 @@ const About = () => {
                                 </p>
                             </div>
 
-                            <div className="mt-6 flex flex-wrap gap-4">
+                            <div className="mt-5 sm:mt-6 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
                                 <a
                                     href="./Yashwanth_U_CV.pdf"
                                     download="Yashwanth_U_CV.pdf"
@@ -138,7 +138,7 @@ const About = () => {
                                     href="https://www.linkedin.com/in/yashwanthu/"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="px-6 py-3 rounded-lg font-semibold transition-all hover:scale-105"
+                                    className="px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold transition-all hover:scale-105 text-center"
                                     style={{
                                         backgroundColor: 'var(--bg-tertiary)',
                                         color: 'var(--text-primary)',
@@ -156,7 +156,7 @@ const About = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ delay: 0.3 }}
-                        className="grid grid-cols-2 gap-4"
+                        className="grid grid-cols-2 gap-3 sm:gap-4"
                     >
                         {highlights.map((item, index) => (
                             <motion.div
@@ -165,13 +165,13 @@ const About = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: 0.4 + index * 0.1 }}
-                                className="card rounded-2xl p-6"
+                                className="card rounded-xl sm:rounded-2xl p-4 sm:p-6"
                             >
-                                <span className="text-3xl mb-3 block">{item.icon}</span>
-                                <h4 className="font-bold mb-2" style={{ color: 'var(--text-primary)' }}>
+                                <span className="text-2xl sm:text-3xl mb-2 sm:mb-3 block">{item.icon}</span>
+                                <h4 className="font-bold mb-1 sm:mb-2 text-sm sm:text-base" style={{ color: 'var(--text-primary)' }}>
                                     {item.title}
                                 </h4>
-                                <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
+                                <p className="text-xs sm:text-sm" style={{ color: 'var(--text-secondary)' }}>
                                     {item.description}
                                 </p>
                             </motion.div>
@@ -184,9 +184,9 @@ const About = () => {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mb-16"
+                    className="mb-10 sm:mb-16"
                 >
-                    <div className="card rounded-2xl p-8">
+                    <div className="card rounded-xl sm:rounded-2xl p-6 sm:p-8">
                         <h3 className="text-2xl font-bold mb-6 text-center">
                             <span className="gradient-text">Tools & Technologies</span>
                         </h3>
@@ -222,7 +222,7 @@ const About = () => {
                         Why <span className="gradient-text">Work With Me</span>?
                     </h3>
 
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                         {whyHireMe.map((item, index) => (
                             <motion.div
                                 key={item.title}
@@ -230,10 +230,10 @@ const About = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                                 transition={{ delay: index * 0.1 }}
-                                className="card rounded-2xl p-6 group"
+                                className="card rounded-xl sm:rounded-2xl p-5 sm:p-6 group"
                             >
                                 <div
-                                    className="w-10 h-10 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform"
+                                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform"
                                     style={{
                                         background: 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))',
                                     }}
@@ -259,9 +259,9 @@ const About = () => {
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="mt-16 text-center"
+                    className="mt-10 sm:mt-16 text-center"
                 >
-                    <div className="card rounded-2xl p-8 sm:p-12">
+                    <div className="card rounded-xl sm:rounded-2xl p-6 sm:p-8 md:p-12">
                         <h3 className="text-2xl sm:text-3xl font-bold mb-4">
                             Let's <span className="gradient-text">Connect</span>
                         </h3>
@@ -269,7 +269,7 @@ const About = () => {
                             I'm always open to discussing new opportunities, interesting projects,
                             or just having a conversation about data and technology.
                         </p>
-                        <div className="flex flex-wrap justify-center gap-4">
+                        <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
                             <a
                                 href="https://www.linkedin.com/in/yashwanthu/"
                                 target="_blank"
@@ -286,7 +286,7 @@ const About = () => {
                                     navigator.clipboard.writeText('yashwanthu702@gmail.com');
                                     alert('Email copied to clipboard!');
                                 }}
-                                className="px-6 py-3 rounded-lg font-semibold transition-all hover:scale-105 flex items-center gap-2"
+                                className="px-4 sm:px-6 py-2.5 sm:py-3 rounded-lg font-semibold transition-all hover:scale-105 flex items-center justify-center gap-2 w-full sm:w-auto"
                                 style={{
                                     backgroundColor: 'var(--bg-tertiary)',
                                     color: 'var(--text-primary)',
@@ -301,7 +301,7 @@ const About = () => {
                     </div>
                 </motion.div>
             </div>
-        </section>
+        </section >
     );
 };
 

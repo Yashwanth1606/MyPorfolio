@@ -8,7 +8,7 @@ const ProjectDetails = () => {
 
     if (!project) {
         return (
-            <section className="min-h-screen pt-24 pb-16 px-4">
+            <section className="min-h-screen pt-20 sm:pt-24 pb-12 sm:pb-16 px-4">
                 <div className="max-w-6xl mx-auto text-center">
                     <div className="text-6xl mb-4">🔍</div>
                     <h1 className="text-3xl font-bold mb-4">Project not found</h1>
@@ -21,13 +21,13 @@ const ProjectDetails = () => {
     }
 
     return (
-        <section className="min-h-screen pt-24 pb-16 px-4">
+        <section className="min-h-screen pt-20 sm:pt-24 pb-12 sm:pb-16 px-4">
             <div className="max-w-4xl mx-auto">
                 {/* Back Button */}
                 <motion.div
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    className="mb-8"
+                    className="mb-6 sm:mb-8"
                 >
                     <Link
                         to="/projects"
@@ -45,18 +45,18 @@ const ProjectDetails = () => {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="card rounded-2xl overflow-hidden mb-8"
+                    className="card rounded-xl sm:rounded-2xl overflow-hidden mb-6 sm:mb-8"
                 >
                     {/* Gradient Banner */}
                     <div className={`h-4 bg-gradient-to-r ${project.color}`} />
 
-                    <div className="p-8">
+                    <div className="p-5 sm:p-8">
                         {/* Client Badge */}
                         <motion.div
                             initial={{ opacity: 0, scale: 0.8 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.1 }}
-                            className="inline-block px-4 py-1.5 rounded-full text-sm font-medium mb-4"
+                            className="inline-block px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium mb-3 sm:mb-4"
                             style={{
                                 backgroundColor: 'var(--bg-tertiary)',
                                 color: 'var(--text-secondary)',
@@ -66,12 +66,12 @@ const ProjectDetails = () => {
                         </motion.div>
 
                         {/* Title */}
-                        <h1 className="text-3xl sm:text-4xl font-bold mb-6">
+                        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 sm:mb-6">
                             <span className="gradient-text">{project.title}</span>
                         </h1>
 
                         {/* Skills & Tools */}
-                        <div className="grid sm:grid-cols-2 gap-6 mb-8">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-6 sm:mb-8">
                             {/* Skills */}
                             <div>
                                 <h3
@@ -128,13 +128,13 @@ const ProjectDetails = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2 }}
-                    className="card rounded-2xl p-8"
+                    className="card rounded-xl sm:rounded-2xl p-5 sm:p-8"
                 >
                     <h2
-                        className="text-xl font-bold mb-6 flex items-center gap-2"
+                        className="text-lg sm:text-xl font-bold mb-4 sm:mb-6 flex items-center gap-2"
                         style={{ color: 'var(--text-primary)' }}
                     >
-                        <span className="text-2xl">📋</span>
+                        <span className="text-xl sm:text-2xl">📋</span>
                         Project Overview
                     </h2>
 
@@ -172,7 +172,7 @@ const ProjectDetails = () => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
-                    className="mt-12 text-center"
+                    className="mt-8 sm:mt-12 text-center"
                 >
                     <p className="text-sm mb-4" style={{ color: 'var(--text-muted)' }}>
                         Explore more of my work
