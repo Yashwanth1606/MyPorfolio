@@ -55,9 +55,6 @@ function App() {
           <p className="text-sm" style={{ color: 'var(--text-muted)' }}>
             © {new Date().getFullYear()} Yashwanth U. All rights reserved.
           </p>
-          <p className="text-xs mt-2" style={{ color: 'var(--text-muted)' }}>
-            Built with React, Tailwind CSS & Framer Motion
-          </p>
         </footer>
       </div>
     </Router>
