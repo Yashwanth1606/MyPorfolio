@@ -13,6 +13,7 @@ const Navbar = () => {
         { name: 'Home', id: 'home' },
         { name: 'Skills', id: 'skills' },
         { name: 'Projects', id: 'projects' },
+        { name: 'Certifications', id: 'certifications' },
         { name: 'About', id: 'about' },
     ];
 
@@ -69,8 +70,8 @@ const Navbar = () => {
             initial={{ y: -100 }}
             animate={{ y: 0 }}
             className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-                    ? 'py-3 backdrop-blur-lg'
-                    : 'py-4'
+                ? 'py-3 backdrop-blur-lg'
+                : 'py-4'
                 }`}
             style={{
                 backgroundColor: scrolled ? 'rgba(var(--bg-primary-rgb), 0.8)' : 'transparent',
@@ -181,8 +182,8 @@ const Navbar = () => {
                                     <button
                                         onClick={() => scrollToSection(item.id)}
                                         className={`block w-full text-left py-2 px-4 rounded-lg transition-colors ${!isOnDetailPage && activeSection === item.id
-                                                ? 'gradient-bg text-white'
-                                                : ''
+                                            ? 'gradient-bg text-white'
+                                            : ''
                                             }`}
                                         style={{
                                             color: !isOnDetailPage && activeSection === item.id ? 'white' : 'var(--text-primary)',

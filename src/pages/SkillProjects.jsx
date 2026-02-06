@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useParams, Link, useNavigate } from 'react-router-dom';
 import { skills } from '../data/skills';
 import { projects } from '../data/projects';
+import { certifications } from '../data/certifications';
 import ProjectCard from '../components/ProjectCard';
 
 const SkillProjects = () => {
@@ -15,6 +16,11 @@ const SkillProjects = () => {
             (s) => s.toLowerCase().replace(/\s+/g, '-') === skillId ||
                 s.toLowerCase() === skill?.name.toLowerCase()
         )
+    );
+
+    // Filter certifications related to this skill
+    const relatedCertifications = certifications.filter((cert) =>
+        cert.relatedSkills.includes(skillId)
     );
 
     const handleBackToSkills = () => {
@@ -108,9 +114,70 @@ const SkillProjects = () => {
                         <p style={{ color: 'var(--text-secondary)' }}>
                             There are no projects currently listed for this skill.
                         </p>
-                        <Link to="/projects" className="btn-primary mt-6 inline-flex">
-                            View All Projects
-                        </Link>
+                    </motion.div>
+                )}
+
+                {/* Related Certifications Section */}
+                {relatedCertifications.length > 0 && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.3 }}
+                        className="mt-12 sm:mt-16"
+                    >
+                        <h2 className="text-xl sm:text-2xl font-bold mb-6" style={{ color: 'var(--text-primary)' }}>
+                            Related <span className="gradient-text">Certifications</span>
+                        </h2>
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                            {relatedCertifications.map((cert, index) => (
+                                <motion.div
+                                    key={cert.id}
+                                    initial={{ opacity: 0, y: 20 }}
+                                    whileInView={{ opacity: 1, y: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: index * 0.1, duration: 0.5 }}
+                                    className="card rounded-xl sm:rounded-2xl p-4 sm:p-6"
+                                >
+                                    {/* Gradient Header */}
+                                    <div className={`h-2 rounded-t-xl sm:rounded-t-2xl bg-gradient-to-r ${cert.color} -mx-4 sm:-mx-6 -mt-4 sm:-mt-6 mb-4 sm:mb-6`} />
+
+                                    <div className="flex items-start gap-3 sm:gap-4">
+                                        <div
+                                            className={`skill-icon ${cert.bgColor} w-10 h-10 sm:w-12 sm:h-12 flex-shrink-0`}
+                                        >
+                                            <span className="text-xl sm:text-2xl">{cert.icon}</span>
+                                        </div>
+                                        <div className="flex-1 min-w-0">
+                                            <h3
+                                                className="text-base sm:text-lg font-semibold mb-2 line-clamp-2"
+                                                style={{ color: 'var(--text-primary)' }}
+                                            >
+                                                {cert.title}
+                                            </h3>
+                                            <div
+                                                className="inline-block px-2 sm:px-3 py-0.5 sm:py-1 rounded-full text-[10px] sm:text-xs font-medium mb-3"
+                                                style={{
+                                                    backgroundColor: 'var(--bg-tertiary)',
+                                                    color: 'var(--text-secondary)',
+                                                }}
+                                            >
+                                                {cert.skillCategory}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <Link
+                                        to={`/certifications/${cert.id}`}
+                                        className="inline-flex items-center gap-2 text-sm font-medium mt-2 transition-colors hover:opacity-80"
+                                        style={{ color: 'var(--gradient-start)' }}
+                                    >
+                                        View Certificate
+                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                        </svg>
+                                    </Link>
+                                </motion.div>
+                            ))}
+                        </div>
                     </motion.div>
                 )}
             </div>
@@ -119,3 +186,4 @@ const SkillProjects = () => {
 };
 
 export default SkillProjects;
+

@@ -6,8 +6,10 @@ import Home from './pages/Home';
 import Skills from './pages/Skills';
 import Projects from './pages/Projects';
 import About from './pages/About';
+import Certifications from './pages/Certifications';
 import SkillProjects from './pages/SkillProjects';
 import ProjectDetails from './pages/ProjectDetails';
+import CertificationDetails from './pages/CertificationDetails';
 
 // Single page layout with all sections
 function MainPage() {
@@ -21,6 +23,9 @@ function MainPage() {
       </section>
       <section id="projects">
         <Projects />
+      </section>
+      <section id="certifications">
+        <Certifications />
       </section>
       <section id="about">
         <About />
@@ -70,6 +75,7 @@ function App() {
             <Route path="/" element={<MainPage />} />
             <Route path="/skills/:skillId" element={<SkillProjects />} />
             <Route path="/projects/:projectId" element={<ProjectDetails />} />
+            <Route path="/certifications/:certId" element={<CertificationDetails />} />
             {/* Catch-all route - redirect to home */}
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
