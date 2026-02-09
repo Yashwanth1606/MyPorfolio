@@ -30,17 +30,6 @@ const CertificationDetails = () => {
         window.open(pdfUrl, '_blank');
     };
 
-    const handleDownloadPdf = () => {
-        const basePath = import.meta.env.BASE_URL || '/';
-        const pdfUrl = `${basePath}${certification.pdfPath.replace(/^\//, '')}`;
-        const link = document.createElement('a');
-        link.href = pdfUrl;
-        link.download = certification.pdfFileName;
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-    };
-
     if (!certification) {
         return (
             <section className="min-h-screen pt-20 sm:pt-24 pb-12 sm:pb-16 px-4">
@@ -121,22 +110,6 @@ const CertificationDetails = () => {
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                 </svg>
                                 View PDF
-                            </motion.button>
-                            <motion.button
-                                onClick={handleDownloadPdf}
-                                className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-lg font-semibold transition-all duration-300"
-                                style={{
-                                    backgroundColor: 'var(--bg-tertiary)',
-                                    color: 'var(--text-primary)',
-                                    border: '1px solid var(--border-color)',
-                                }}
-                                whileHover={{ scale: 1.02, backgroundColor: 'var(--bg-secondary)' }}
-                                whileTap={{ scale: 0.98 }}
-                            >
-                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                                </svg>
-                                Download PDF
                             </motion.button>
                         </div>
                     </div>
