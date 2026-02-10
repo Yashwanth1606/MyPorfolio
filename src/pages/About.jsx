@@ -30,28 +30,7 @@ const About = () => {
         'Databricks', 'DBeaver', 'SSMS', 'Report Builder', 'Jira', 'Git',
     ];
 
-    const whyHireMe = [
-        {
-            title: 'Data-Driven Problem Solver',
-            description: 'I approach every challenge with a data-first mindset, ensuring decisions are backed by solid analysis and insights.',
-        },
-        {
-            title: 'End-to-End Expertise',
-            description: 'From data ingestion and transformation to visualization and reporting, I handle the complete data lifecycle.',
-        },
-        {
-            title: 'Enterprise Experience',
-            description: 'Proven track record working with large-scale enterprise clients across insurance, retail, and manufacturing sectors.',
-        },
-        {
-            title: 'Modern Tech Stack',
-            description: 'Proficient in cutting-edge tools like Microsoft Fabric, Databricks, and cloud-native Azure services.',
-        },
-        {
-            title: 'Continuous Learner',
-            description: 'Passionate about staying updated with the latest trends in data engineering, AI, and prompt engineering.',
-        },
-    ];
+
 
     return (
         <section className="py-12 sm:py-20 px-4" style={{ backgroundColor: 'var(--bg-secondary)' }}>
@@ -212,47 +191,7 @@ const About = () => {
                     </div>
                 </motion.div>
 
-                {/* Why Hire Me */}
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                >
-                    <h3 className="text-2xl font-bold mb-8 text-center">
-                        Why <span className="gradient-text">Work With Me</span>?
-                    </h3>
 
-                    <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                        {whyHireMe.map((item, index) => (
-                            <motion.div
-                                key={item.title}
-                                initial={{ opacity: 0, y: 20 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
-                                transition={{ delay: index * 0.1 }}
-                                className="card rounded-xl sm:rounded-2xl p-5 sm:p-6 group"
-                            >
-                                <div
-                                    className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl flex items-center justify-center mb-3 sm:mb-4 group-hover:scale-110 transition-transform"
-                                    style={{
-                                        background: 'linear-gradient(135deg, var(--gradient-start), var(--gradient-end))',
-                                    }}
-                                >
-                                    <span className="text-white font-bold">{index + 1}</span>
-                                </div>
-                                <h4
-                                    className="font-bold mb-2 group-hover:gradient-text transition-all"
-                                    style={{ color: 'var(--text-primary)' }}
-                                >
-                                    {item.title}
-                                </h4>
-                                <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>
-                                    {item.description}
-                                </p>
-                            </motion.div>
-                        ))}
-                    </div>
-                </motion.div>
 
                 {/* CTA */}
                 <motion.div
